@@ -880,11 +880,7 @@ function App() {
           TOUCH INTELLIGENCE
         </p>
 
-        <h2>
-          Your screen should know
-          <br />
-          what you actually meant.
-        </h2>
+        
 
         <p className="description">
           ChhooMat analyzes touch
