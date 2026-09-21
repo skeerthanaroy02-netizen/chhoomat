@@ -15,7 +15,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
-        "https://chhoomat.vercel.app/"
+        "https://chhoomat.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -58,15 +58,20 @@ def predict_touch(touch: TouchData):
         "speed": touch.speed
     }])
 
+
     # Get the model prediction
     prediction = model.predict(data)[0]
 
-    # Get the probability of the predicted class
+
+    # Get the probability of each class
     probabilities = model.predict_proba(data)[0]
     class_names = model.classes_
 
+
+    # Find the probability of the predicted class
     predicted_index = list(class_names).index(prediction)
     confidence = float(probabilities[predicted_index])
+
 
     return {
         "prediction": prediction,
